@@ -44,7 +44,7 @@ const Login = () => {
             if (response.ok) {
                 toast.success(result.message);
                 console.log("Logging in user:", { name: result.user.name, email: result.user.email });
-                Cookie.set('token', result.token, { expires: 1 });
+                Cookie.set('token', result.token, { expires: 1 }, {secure : true});
                 login({ name: result.user.name, email: result.user.email }); 
                 setTimeout(() => {
                     navigate('/dashboard'); 
